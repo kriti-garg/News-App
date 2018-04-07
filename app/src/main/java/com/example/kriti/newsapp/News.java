@@ -25,6 +25,7 @@ public class News {
     private String mDate;
     private String mGenre;
     private String mUrl;
+    private Integer mNewsNumber;
 
 
     /**
@@ -35,13 +36,16 @@ public class News {
      * @param date is the date of the news
      * @param genre is the genre of the news
      * @param url is the website URL of the news.
+     * @param newsnumber is the number of the news
+     *
      */
-    public News(String headline, String author, String date, String genre, String url) {
+    public News(String headline, String author, String date, String genre, String url, Integer newsnumber) {
         mHeadline = headline;
         mAuthor = author;
         mDate = date;
         mGenre = genre;
         mUrl = url;
+        mNewsNumber = newsnumber;
     }
 
     /**
@@ -77,5 +81,12 @@ public class News {
      */
     public String getUrl() {
         return mUrl;
+    }
+
+    /**
+     * Returns the News Number of the book.
+     */
+    public Integer getNewsNumber() {
+        return mNewsNumber;
     }
 }

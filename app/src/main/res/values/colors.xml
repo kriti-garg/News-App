@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2016 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <!-- Primary color of the app (shown in the app bar) -->
+    <color name="colorPrimary">#2B3D4D</color>
+
+    <!-- Primary dark color of the app (shown in the status bar) -->
+    <color name="colorPrimaryDark">#23303D</color>
+
+    <!-- Accent color of the app -->
+    <color name="colorAccent">#10CAC9</color>
+
+    <!-- Text color for the author of the book in the list item -->
+    <color name="textColorAuthor">#B4BAC0</color>
+
+    <!-- Text color for the title of the book in the list item -->
+    <color name="textColorTitle">#2B3D4D</color>
+
+    <!-- Color for a news with news number  0 and 2 -->
+    <color name="color1">#4A7BA7</color>
+
+    <!-- Magnitude circle color for a news with news number  between 2 and 3 -->
+    <color name="color2">#df9c86</color>
+
+    <!-- Magnitude circle color for a news with news number  between 3 and 4 -->
+    <color name="color3">#a9cfed</color>
+
+    <!-- Magnitude circle color for a news with news number  between 4 and 5 -->
+    <color name="color4">#F5A623</color>
+
+    <!-- Magnitude circle color for a news with news number  between 5 and 6 -->
+    <color name="color5">#FF7D50</color>
+
+    <!-- Magnitude circle color for a news with news number  between 6 and 7 -->
+    <color name="color6">#01a979</color>
+
+    <!-- Magnitude circle color for a news with news number  between 7 and 8 -->
+    <color name="color7">#0c24c4</color>
+
+    <!-- Magnitude circle color for a news with news number  between 8 and 9 -->
+    <color name="color8">#edf506</color>
+
+    <!-- Magnitude circle color for a news with news number  between 9 and 10 -->
+    <color name="color9">#801504</color>
+
+    <!-- Magnitude circle color for a news with news number  over 10 -->
+    <color name="color10">#C03823</color>
 </resources>
