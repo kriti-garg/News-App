@@ -23,12 +23,6 @@
     <!-- Accent color of the app -->
     <color name="colorAccent">#10CAC9</color>
 
-    <!-- Text color for the author of the book in the list item -->
-    <color name="textColorAuthor">#B4BAC0</color>
-
-    <!-- Text color for the title of the book in the list item -->
-    <color name="textColorTitle">#2B3D4D</color>
-
     <!-- Color for a news with news number  0 and 2 -->
     <color name="color1">#4A7BA7</color>
 

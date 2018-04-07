@@ -18,14 +18,14 @@ package com.example.kriti.newsapp;
 /**
  * An {@link News} object contains information related to a single book.
  */
-public class News {
+class News {
 
-    private String mHeadline;
-    private String mAuthor;
-    private String mDate;
-    private String mGenre;
-    private String mUrl;
-    private Integer mNewsNumber;
+    private final String mHeadline;
+    private final String mAuthor;
+    private final String mDate;
+    private final String mGenre;
+    private final String mUrl;
+    private final Integer mNewsNumber;
 
 
     /**

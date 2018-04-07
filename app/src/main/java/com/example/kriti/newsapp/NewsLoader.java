@@ -19,17 +19,13 @@ import android.content.AsyncTaskLoader;
 import android.content.Context;
 import android.util.Log;
 
-import java.net.URL;
 import java.util.List;
 
 /**
  * Loads a list of books by using an AsyncTask to perform the
  * network request to the given URL.
  */
-public class NewsLoader extends AsyncTaskLoader<List<News>> {
-
-    /** Tag for log messages */
-    private static final String LOG_TAG = NewsLoader.class.getName();
+class NewsLoader extends AsyncTaskLoader<List<News>> {
 
     /**
      * Constructs a new {@link NewsLoader}.

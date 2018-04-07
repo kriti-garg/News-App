@@ -43,7 +43,7 @@ import static com.example.kriti.newsapp.NewsAppActivity.LOG_TAG;
 /**
  * Helper methods related to requesting and receiving book data from Google API.
  */
-public final class QueryUtils {
+final class QueryUtils {
 
     /**
      * Create a private constructor because no one should ever create a {@link QueryUtils} object.
@@ -57,7 +57,7 @@ public final class QueryUtils {
     /**
      * Query the dataset and return a list of {@link News} objects.
      */
-    public static List<News> fetchNewsData(){
+    public static List<News> fetchNewsData() {
 
         // Create URL object
         URL url = createUrl();
@@ -71,10 +71,9 @@ public final class QueryUtils {
         }
 
         // Extract relevant fields from the JSON response and create a list of {@link News}s
-        List<News> news = extractFeatureFromJson(jsonResponse);
 
         // Return the list of {@link News}s
-        return news;
+        return extractFeatureFromJson(jsonResponse);
     }
 
     /**
@@ -199,20 +198,19 @@ public final class QueryUtils {
                 String newsHeadline;
                 try {
                     newsHeadline = currentNews.getString("webTitle");
-                }catch (JSONException e){
+                } catch (JSONException e) {
                     newsHeadline = "News Headline Unknown";
-                };
+                }
 
                 String newsAuthors;
                 try {
                     JSONArray authorsArray = currentNews.getJSONArray("tags");
-                    if(authorsArray.length() == 0){
+                    if (authorsArray.length() == 0) {
                         newsAuthors = "Author Unknown";
-                    }
-                    else {
+                    } else {
                         newsAuthors = formatAuthors(authorsArray);
                     }
-                }catch (JSONException e){
+                } catch (JSONException e) {
                     newsAuthors = "Author Unknown";
                 }
 
@@ -220,27 +218,27 @@ public final class QueryUtils {
                 try {
                     newsDate = currentNews.getString("webPublicationDate");
                     newsDate = formatDate(newsDate);
-                }catch (JSONException e){
+                } catch (JSONException e) {
                     newsDate = "News Date Unknown";
-                };
+                }
 
                 String newsGenre;
                 try {
                     newsGenre = currentNews.getString("sectionName");
-                }catch (JSONException e){
+                } catch (JSONException e) {
                     newsGenre = "News Genre Unknown";
-                };
+                }
 
                 String newsURL;
                 try {
                     newsURL = currentNews.getString("webUrl");
-                }catch (JSONException e){
+                } catch (JSONException e) {
                     newsURL = "News Link Unknown";
-                };
+                }
 
                 // Create a new {@link News} object with the headlines, authors, date, genre, url, newsnumber,
                 // and url from the JSON response.
-                News news = new News(newsHeadline,newsAuthors, newsDate, newsGenre, newsURL, i+1);
+                News news = new News(newsHeadline, newsAuthors, newsDate, newsGenre, newsURL, i + 1);
 
                 // Add the new {@link News} to the list of books.
                 newsList.add(news);
@@ -272,19 +270,18 @@ public final class QueryUtils {
     }
 
     private static String formatAuthors(JSONArray authorsList) throws JSONException {
-        String newsAuthor = null;
+        StringBuilder newsAuthor = null;
         for (int i = 0; i < authorsList.length(); i++) {
             JSONObject obj = authorsList.getJSONObject(i);
-            if (i == 0){
-                newsAuthor = obj.getString("webTitle");
+            if (i == 0) {
+                newsAuthor = new StringBuilder(obj.getString("webTitle"));
+            } else {
+                newsAuthor.append(obj.getString("webTitle"));
             }
-            else{
-                newsAuthor = newsAuthor + obj.getString("webTitle");
-            }
-            if(i!= authorsList.length()-1)
-                newsAuthor = newsAuthor + ",";
+            if (i != authorsList.length() - 1)
+                newsAuthor.append(",");
         }
-        return newsAuthor;
+        return newsAuthor.toString();
     }
 
 }

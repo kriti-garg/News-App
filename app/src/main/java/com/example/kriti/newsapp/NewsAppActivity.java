@@ -49,7 +49,7 @@ public class NewsAppActivity extends AppCompatActivity implements
      */
     private NewsAdapter newsAdapter;
 
-    SwipeRefreshLayout swipeRefresh;
+    private SwipeRefreshLayout swipeRefresh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +59,7 @@ public class NewsAppActivity extends AppCompatActivity implements
         swipeRefresh.setOnRefreshListener(this);
 
         // Find a reference to the {@link ListView} in the layout
-        ListView newsListView = (ListView) findViewById(R.id.list);
+        ListView newsListView = findViewById(R.id.list);
 
         // Create a new adapter that takes an empty list of books as input
         newsAdapter = new NewsAdapter(this, new ArrayList<News>());
@@ -77,6 +77,7 @@ public class NewsAppActivity extends AppCompatActivity implements
                 News currentNews = newsAdapter.getItem(position);
 
                 // Convert the String URL into a URI object (to pass into the Intent constructor)
+                assert currentNews != null;
                 Uri newUri = Uri.parse(currentNews.getUrl());
 
                 // Create a new intent to view the book URI
@@ -96,6 +97,7 @@ public class NewsAppActivity extends AppCompatActivity implements
                 getSystemService(Context.CONNECTIVITY_SERVICE);
 
         // Get details on the currently active default data network
+        assert connMgr != null;
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
         // Clear the newsAdapter
@@ -116,7 +118,7 @@ public class NewsAppActivity extends AppCompatActivity implements
 
             // Clear the newsAdapter
             newsAdapter.clear();
-        };
+        }
     }
 
 
@@ -154,7 +156,7 @@ public class NewsAppActivity extends AppCompatActivity implements
 
     @Override
     public void onRefresh() {
-//        NEWS_LOADER_ID++;
+        NEWS_LOADER_ID++;
         getLoaderManager().restartLoader(NEWS_LOADER_ID, null, this);
     }
 

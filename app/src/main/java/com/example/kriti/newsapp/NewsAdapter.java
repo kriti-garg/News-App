@@ -17,6 +17,7 @@ package com.example.kriti.newsapp;
 
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
+import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,7 +34,7 @@ import java.util.List;
  * These list item layouts will be provided to an adapter view like ListView
  * to be displayed to the user.
  */
-public class NewsAdapter extends ArrayAdapter<News> {
+class NewsAdapter extends ArrayAdapter<News> {
 
     /**
      * Constructs a new {@link NewsAdapter}.
@@ -49,8 +50,9 @@ public class NewsAdapter extends ArrayAdapter<News> {
      * Returns a list item view that displays information about the news at the given position
      * in the list of news.
      */
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         // Check if there is an existing list item view (called convertView) that we can reuse,
         // otherwise, if convertView is null, then inflate a new list item layout.
         View listItemView = convertView;
@@ -63,9 +65,10 @@ public class NewsAdapter extends ArrayAdapter<News> {
         News currentNews = getItem(position);
 
         // Find the TextView with News Number
-        TextView newsnumberView = (TextView) listItemView.findViewById(R.id.newsnumber);
+        TextView newsnumberView = listItemView.findViewById(R.id.newsnumber);
 
         // Display the news number of the current news in that TextView
+        assert currentNews != null;
         newsnumberView.setText(currentNews.getNewsNumber().toString());
 
         // Set the proper background color on the news number circle.
@@ -79,25 +82,25 @@ public class NewsAdapter extends ArrayAdapter<News> {
         numberCircle.setColor(newsColor);
 
         // Find the TextView with News Headline
-        TextView newsHeadline = (TextView) listItemView.findViewById(R.id.newsHeadline);
+        TextView newsHeadline = listItemView.findViewById(R.id.newsHeadline);
 
         // Display the headline of the current news in that TextView
         newsHeadline.setText(currentNews.getHeadline());
 
         // Find the TextView with author
-        TextView authorView = (TextView) listItemView.findViewById(R.id.author);
+        TextView authorView = listItemView.findViewById(R.id.author);
 
         // Display the author of the current news in that TextView
         authorView.setText(currentNews.getAuthor());
 
         // Find the TextView with date
-        TextView dateView = (TextView) listItemView.findViewById(R.id.date);
+        TextView dateView = listItemView.findViewById(R.id.date);
 
         // Display the date of the current news in that TextView
         dateView.setText(currentNews.getDate());
 
         // Find the TextView with genre
-        TextView genreView = (TextView) listItemView.findViewById(R.id.genre);
+        TextView genreView = listItemView.findViewById(R.id.genre);
 
         // Display the genre of the current news in that TextView
         genreView.setText(currentNews.getGenre());
